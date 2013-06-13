@@ -14,7 +14,7 @@ class PurchasesController < ApplicationController
 
   # GET /purchases/new
   def new
-    @purchase = Purchase.new
+    render :new, locals: { purchase: purchase }
   end
 
   # GET /purchases/1/edit
@@ -62,6 +62,9 @@ class PurchasesController < ApplicationController
   end
 
   private
+    def purchase
+      Purchase.new
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_purchase
       @purchase = Purchase.find(params[:id])
