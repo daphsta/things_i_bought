@@ -14,7 +14,7 @@ class PurchasesController < ApplicationController
 
   # GET /purchases/new
   def new
-    render :new, locals: { purchase: purchase }
+    @purchase = Purchase.new
   end
 
   # GET /purchases/1/edit
@@ -74,4 +74,6 @@ class PurchasesController < ApplicationController
     def purchase_params
       params.require(:purchase).permit(:name, :cost)
     end
+
+
 end
